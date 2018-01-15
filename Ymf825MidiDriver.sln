@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegisterMap", "submodule\Re
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "submodule", "submodule", "{29568E27-181A-4C4F-98EC-1E6613DFDEC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ymf825", "submodule\ymf825\Ymf825\Ymf825.csproj", "{7B92175F-EDAF-42BF-88A7-D113C1C40AFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{DF42A16C-D481-45A5-AF57-06FD0B92D8C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF42A16C-D481-45A5-AF57-06FD0B92D8C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF42A16C-D481-45A5-AF57-06FD0B92D8C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B92175F-EDAF-42BF-88A7-D113C1C40AFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B92175F-EDAF-42BF-88A7-D113C1C40AFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B92175F-EDAF-42BF-88A7-D113C1C40AFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B92175F-EDAF-42BF-88A7-D113C1C40AFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +48,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{76C90E84-9450-4635-897D-2C065F8DFC17} = {29568E27-181A-4C4F-98EC-1E6613DFDEC8}
 		{DF42A16C-D481-45A5-AF57-06FD0B92D8C7} = {29568E27-181A-4C4F-98EC-1E6613DFDEC8}
+		{7B92175F-EDAF-42BF-88A7-D113C1C40AFF} = {29568E27-181A-4C4F-98EC-1E6613DFDEC8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {479F6C35-8001-4CBD-B007-BE51855A295F}

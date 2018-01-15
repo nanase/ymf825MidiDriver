@@ -219,13 +219,13 @@
       <Project>{76c90e84-9450-4635-897d-2c065f8dfc17}</Project>
       <Name>MidiUtils</Name>
     </ProjectReference>
+    <ProjectReference Include="..\submodule\ymf825\Ymf825\Ymf825.csproj">
+      <Project>{7b92175f-edaf-42bf-88a7-d113c1c40aff}</Project>
+      <Name>Ymf825</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ymf825Server\Ymf825Server.csproj">
       <Project>{399e3a23-4f60-46a4-8824-be582099e51b}</Project>
       <Name>Ymf825Server</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ymf825\Ymf825.csproj">
-      <Project>{7b92175f-edaf-42bf-88a7-d113c1c40aff}</Project>
-      <Name>Ymf825</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

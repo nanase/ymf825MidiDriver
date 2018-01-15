@@ -94,7 +94,7 @@
       <Project>{df42a16c-d481-45a5-af57-06fd0b92d8c7}</Project>
       <Name>RegisterMap</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Ymf825\Ymf825.csproj">
+    <ProjectReference Include="..\submodule\ymf825\Ymf825\Ymf825.csproj">
       <Project>{7b92175f-edaf-42bf-88a7-d113c1c40aff}</Project>
       <Name>Ymf825</Name>
     </ProjectReference>
