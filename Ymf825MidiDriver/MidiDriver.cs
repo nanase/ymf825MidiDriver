@@ -111,7 +111,7 @@ namespace Ymf825MidiDriver
             if (i == 16)
                 return;
 
-            ProgramChange(i, toneItem.ProgramNumber, true);
+            ProgramChange(i, toneItem.ProgramNumber);
         }
 
         #endregion
@@ -137,7 +137,7 @@ namespace Ymf825MidiDriver
                     break;
 
                 case EventType.ProgramChange:
-                    ProgramChange(midiEvent.Channel, midiEvent.Data1, true);
+                    ProgramChange(midiEvent.Channel, midiEvent.Data1);
                     break;
 
                 case EventType.ChannelPressure:
@@ -222,15 +222,15 @@ namespace Ymf825MidiDriver
             var tone = ToneItems.FirstOrDefault(t =>
                 t.ProgramNumberAssigned && t.ProgramNumber == programNumbers[channel] &&
                 t.PercussionNumberAssigned && t.PercussionNumber == key) ?? new ToneItem();
-            SetProgram(channel, tone.ProgramNumber, tone);
+            SetPercussionProgram(channel, tone.ProgramNumber, tone);
             SendNoteOn(channel, tone.PercussionNoteNumber, velocity);
             noteOnKeys[channel] = key;
         }
 
-        private void ProgramChange(int channel, int program, bool forceChange = false)
+        private void ProgramChange(int channel, int program)
         {
             var tone = ToneItems.FirstOrDefault(t => t.ProgramNumberAssigned && t.ProgramNumber == program) ?? new ToneItem();
-            SetProgram(channel, program, tone, forceChange);
+            SetProgram(channel, program, tone);
         }
 
         private void ControlChange(int channel, int data1, int data2)
@@ -265,7 +265,7 @@ namespace Ymf825MidiDriver
                 case 100: // RPN LSB
                     rpnLsb[channel] = data2;
                     break;
-                    
+
                 case 101: // RPN MSB
                     rpnMsb[channel] = data2;
                     break;
@@ -316,9 +316,9 @@ namespace Ymf825MidiDriver
 
         // ------
 
-        private void SetProgram(int channel, int programNumber, ToneItem tone, bool forceChange = false)
+        private void SetPercussionProgram(int channel, int programNumber, ToneItem tone)
         {
-            if (!forceChange && toneParameterList[channel] == tone.ToneParameter)
+            if (toneParameterList[channel] == tone.ToneParameter)
             {
                 toneVolumes[channel] = tone.Volume;
                 SetPanpot(channel, tone.Panpot);
@@ -330,7 +330,14 @@ namespace Ymf825MidiDriver
             toneVolumes[channel] = tone.Volume;
             SetPanpot(channel, tone.Panpot);
             SendProgramChange(channel);
-            //Console.WriteLine($"Perc: {tone.Name} - {tone.PercussionNumber}");
+        }
+
+        private void SetProgram(int channel, int programNumber, ToneItem tone)
+        {
+            toneParameterList[channel] = tone.ToneParameter;
+            programNumbers[channel] = programNumber;
+            toneVolumes[channel] = tone.Volume;
+            SendProgramChange(channel);
         }
 
         private void SetVoiceVolume(int channel, bool setVoiceNumber = false)
